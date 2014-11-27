@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ClassLibraryTPCommerciaux.Commercial">
+    <Position X="3.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAUAAAAIAAAAAAAIABAAAAKAAAIAAA=</HashCode>
+      <FileName>Commercial.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="mesNotesFrais" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ClassLibraryTPCommerciaux.NoteFrais">
+    <Position X="7" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAQAABAEAAAUARABEAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NoteFrais.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="commercial" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ClassLibraryTPCommerciaux.ServiceCommercial">
+    <Position X="0.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ServiceCommercial.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="lesCommerciaux" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ClassLibraryTPCommerciaux.FraisTransport">
+    <Position X="4.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAQAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>FraisTransport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibraryTPCommerciaux.RepasMidi">
+    <Position X="7" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RepasMidi.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassLibraryTPCommerciaux.Nuitee">
+    <Position X="9.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Nuitee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
