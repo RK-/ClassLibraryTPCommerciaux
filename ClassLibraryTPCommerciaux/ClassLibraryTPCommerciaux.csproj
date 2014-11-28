@@ -41,13 +41,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commercial.cs" />
+    <Compile Include="Ecran.cs" />
+    <Compile Include="EnumereChampsCommercial.cs" />
+    <Compile Include="EnumereCommerciaux.cs" />
     <Compile Include="FraisTransport.cs" />
+    <Compile Include="ISalarie.cs" />
+    <Compile Include="IVoyageurCommercial.cs" />
     <Compile Include="NoteFrais.cs" />
     <Compile Include="Nuitee.cs" />
     <Compile Include="PersisteServiceCommercial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepasMidi.cs" />
     <Compile Include="ServiceCommercial.cs" />
+    <Compile Include="ServiceComptable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagramTPCommerciaux.cd" />

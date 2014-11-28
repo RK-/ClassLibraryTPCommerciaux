@@ -19,7 +19,7 @@ namespace ClassLibraryTPCommerciaux
         /// <param name="date">La date du repas</param>
         /// <param name="c">Le commercial</param>
         /// <param name="montantRepas">Le montant du repas</param>
-        public RepasMidi(DateTime date, Commercial c, double montantRepas) 
+        public RepasMidi(DateTime date, IVoyageurCommercial c, double montantRepas) 
             : base(date, c)
         {
             this.montantRepas = montantRepas;

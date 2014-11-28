@@ -11,7 +11,7 @@ namespace ClassLibraryTPCommerciaux
     public static class PersisteServiceCommercial
     {
         /// <summary>
-        /// Méthode static qui sérialise en binaire un service commercial.
+        /// Méthode static qui sérialise en binaire un objet.
         /// </summary>
         /// <param name="sc">Service commercial à sérialiser</param>
         /// <param name="chemin">Le chemin et le nom.ext du fichier</param>

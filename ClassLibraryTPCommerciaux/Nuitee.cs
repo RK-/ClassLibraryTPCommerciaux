@@ -25,7 +25,7 @@ namespace ClassLibraryTPCommerciaux
         /// <param name="c">Le commercial</param>
         /// <param name="region">Le code de la région touristique</param>
         /// <param name="montant">Le montant de la note</param>
-        public Nuitee(DateTime date, Commercial c, int region, double montant)
+        public Nuitee(DateTime date, IVoyageurCommercial c, int region, double montant)
             : base(date, c)
         {
             this.regionTouristique = region;

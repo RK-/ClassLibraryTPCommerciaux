@@ -6,7 +6,7 @@ using System.Text;
 namespace ClassLibraryTPCommerciaux
 {
     [Serializable]
-    public class NoteFrais
+    public class NoteFrais : IComparable
     {
         /// <summary>
         /// La date de la note de frais.
@@ -47,14 +47,14 @@ namespace ClassLibraryTPCommerciaux
         /// <summary>
         /// Le commercial concerné par la note de frais.
         /// </summary>
-        protected Commercial commercial;
+        protected IVoyageurCommercial commercial;
 
         /// <summary>
         /// Constructeur de classe.
         /// </summary>
         /// <param name="dateFrais">La date de frais</param>
         /// <param name="commercial">Le commercial</param>
-        public NoteFrais(DateTime dateFrais, Commercial commercial)
+        public NoteFrais(DateTime dateFrais, IVoyageurCommercial commercial)
         {
             this.commercial = commercial;
             this.dateFrais = dateFrais;
@@ -67,7 +67,7 @@ namespace ClassLibraryTPCommerciaux
         /// <summary>
         /// Accesseur du champ commercial.
         /// </summary>
-        public Commercial Commercial
+        public IVoyageurCommercial Commercial
         {
             get { return commercial; }
             set { commercial = value; }
@@ -119,6 +119,18 @@ namespace ClassLibraryTPCommerciaux
                 libRembourse = "Remboursé";
             }
             return String.Format("numéro : {0} - Date : {1} - montant à rembourser : {2} euros - {3}", this.numFrais, this.dateFrais, this.montantARembourser, libRembourse);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj">L'objet</param>
+        /// <returns>1 si la note de frais est supérieur à la note de frais de l'objet en paramètre.</returns>
+        public int CompareTo(object obj)
+        {
+            if (this.montantARembourser > ((NoteFrais)obj).montantARembourser)
+                return 1;
+            else return -1;
         }
     }
 }

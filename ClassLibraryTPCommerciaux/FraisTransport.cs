@@ -19,7 +19,7 @@ namespace ClassLibraryTPCommerciaux
         /// <param name="date">La date de la note de frais de transport.</param>
         /// <param name="c">Le commercial de la note de frais de transport.</param>
         /// <param name="nbKM">Le nombre de km de la note de frais de transport.</param>
-        public FraisTransport(DateTime date, Commercial c, int nbKM)
+        public FraisTransport(DateTime date, IVoyageurCommercial c, int nbKM)
             : base(date, c)
         {
             this.nbKM = nbKM;

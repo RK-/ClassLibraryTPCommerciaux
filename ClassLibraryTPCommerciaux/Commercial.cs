@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Text;
 namespace ClassLibraryTPCommerciaux
 {
     [Serializable]
-    public class Commercial
+    public class Commercial : IVoyageurCommercial, ISalarie, IEnumerable
     {
         /// <summary>
         /// Le nom du commercial.
@@ -14,9 +15,25 @@ namespace ClassLibraryTPCommerciaux
         private String nom;
 
         /// <summary>
+        /// Accesseur en lecture de nom.
+        /// </summary>
+        public String Nom
+        {
+            get { return nom; }
+        }
+
+        /// <summary>
         /// Le prénom du commercial.
         /// </summary>
         private String prenom;
+
+        /// <summary>
+        /// Accesseur en lecture de prenom.
+        /// </summary>
+        public String Prenom 
+        {
+            get { return prenom; } 
+        }
 
         /// <summary>
         /// La catégorie professionnelle du commercial.
@@ -52,7 +69,7 @@ namespace ClassLibraryTPCommerciaux
         /// <summary>
         /// Accesseur en lecture de la liste des notes de frais.
         /// </summary>
-        /// <returns>La liste des notes de frais</returns>
+        /// <returns>La liste des notes de frais.</returns>
         public List<NoteFrais> getMesNotesFrais()
         {
             return mesNotesFrais;
@@ -66,9 +83,35 @@ namespace ClassLibraryTPCommerciaux
         /// <summary>
         /// Accesseur en lecture de leService.
         /// </summary>
-        public ServiceCommercial LeService
+        public ServiceCommercial LeService 
         {
             get { return leService; }
+        }
+
+        /// <summary>
+        /// Le numéro de sécu du commercial.
+        /// </summary>
+        private String numSecu;
+
+        /// <summary>
+        /// Accesseur en lecture du numéro de sécu.
+        /// </summary>
+        public String NumSecu
+        {
+            get { return numSecu; }
+        }
+
+        /// <summary>
+        /// La date d'embauche du commercial.
+        /// </summary>
+        private DateTime dateEmbauche;
+
+        /// <summary>
+        /// Retourne l'ancienneté (nombre d'années) du commercial.
+        /// </summary>
+        public int Anciennete
+        {
+            get { return DateTime.Now.Year - dateEmbauche.Year; }
         }
 
         /// <summary>
@@ -85,6 +128,42 @@ namespace ClassLibraryTPCommerciaux
             this.categorieProfessionnelle = uneCategorieProfessionnelle; 
             this.puissanceVoiture = unePuissanceVoiture; 
             this.mesNotesFrais = new List<NoteFrais>(); 
+        }
+
+        /// <summary>
+        /// Constructeur de classe.
+        /// </summary>
+        /// <param name="unNom">Le nom</param>
+        /// <param name="unPrenom">Le prénom</param>
+        /// <param name="unePuissanceVoiture">La puissance de la voiture en ch</param>
+        /// <param name="uneCategorieProfessionnelle">La catégorie professionnelle</param>
+        /// <param name="de">La date embauche</param>
+        /// <param name="numSe">Le numéro de sécu</param>
+        public Commercial(String unNom, String unPrenom, int unePuissanceVoiture, char uneCategorieProfessionnelle, DateTime de, String numSe)
+        {
+            this.nom = unNom;
+            this.prenom = unPrenom;
+            this.categorieProfessionnelle = uneCategorieProfessionnelle;
+            this.dateEmbauche = de;
+            this.numSecu = numSe;
+            this.puissanceVoiture = unePuissanceVoiture;
+            this.mesNotesFrais = new List<NoteFrais>();
+        }
+
+        /// <summary>
+        /// Constructeur de classe.
+        /// </summary>
+        /// <param name="n">Le nom</param>
+        /// <param name="p">Le prénom</param>
+        /// <param name="de">La date d'embauche</param>
+        /// <param name="numSe">Le numéro de sécu</param>
+        public Commercial(String n, String p, DateTime de, String numSe)
+        {
+            this.nom = n;
+            this.prenom = p;
+            this.dateEmbauche = de;
+            this.numSecu = numSe;
+            this.mesNotesFrais = new List<NoteFrais>();
         }
 
         /// <summary>
@@ -124,12 +203,30 @@ namespace ClassLibraryTPCommerciaux
         }
 
         /// <summary>
+        /// Trier les notes de frais par montant.
+        /// </summary>
+        public void trierNotes()
+        {
+            mesNotesFrais.Sort();
+        }
+
+        /// <summary>
         /// Rédéfinition de la méthode ToString().
         /// </summary>
         /// <returns>le nom, le prénom, la puissance de la voiture et la catégorie professionnelle du commercial.</returns>
         public override String ToString() 
         {
             return String.Format("Nom : {0} ; Prénom : {1} ; Puissance voiture : {2} ; Catégorie : {3} ", this.nom, this.prenom, this.puissanceVoiture, this.categorieProfessionnelle); 
+        }
+
+        /// <summary>
+        /// Permet l'utilisation du foreach.
+        /// </summary>
+        /// <returns>IEnumerator</returns>
+        public IEnumerator GetEnumerator()
+        {
+            EnumereChampsCommercial en = new EnumereChampsCommercial(this);
+            return en;
         }
     }
 }
