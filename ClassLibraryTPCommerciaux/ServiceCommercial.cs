@@ -28,6 +28,7 @@ namespace ClassLibraryTPCommerciaux
         public void ajouterCommercial(Commercial c)
         {
             lesCommerciaux.Add(c);
+            c.ajouterServiceCommercial(this);
         }
 
         /// <summary>

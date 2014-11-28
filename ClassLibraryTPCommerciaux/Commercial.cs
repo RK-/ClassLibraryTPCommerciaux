@@ -49,9 +49,26 @@ namespace ClassLibraryTPCommerciaux
         /// </summary>
         private List<NoteFrais> mesNotesFrais;
 
+        /// <summary>
+        /// Accesseur en lecture de la liste des notes de frais.
+        /// </summary>
+        /// <returns>La liste des notes de frais</returns>
         public List<NoteFrais> getMesNotesFrais()
         {
             return mesNotesFrais;
+        }
+
+        /// <summary>
+        /// Le service commercial du commercial.
+        /// </summary>
+        private ServiceCommercial leService;
+
+        /// <summary>
+        /// Accesseur en lecture de leService.
+        /// </summary>
+        public ServiceCommercial LeService
+        {
+            get { return leService; }
         }
 
         /// <summary>
@@ -77,6 +94,15 @@ namespace ClassLibraryTPCommerciaux
         public void ajouterNoteFrais(NoteFrais f)
         {
             this.mesNotesFrais.Add(f); 
+        }
+
+        /// <summary>
+        /// Ajouter le service commercial du commercial
+        /// </summary>
+        /// <param name="sc">Le service commercial</param>
+        public void ajouterServiceCommercial(ServiceCommercial sc)
+        {
+            this.leService = sc;
         }
 
         // <summary>

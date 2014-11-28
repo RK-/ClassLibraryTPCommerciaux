@@ -10,14 +10,19 @@ namespace ClassLibraryTPCommerciaux
 {
     public static class PersisteServiceCommercial
     {
-        public static void sauve(object objet, String chemin)
+        /// <summary>
+        /// Méthode static qui sérialise en binaire un service commercial.
+        /// </summary>
+        /// <param name="sc">Service commercial à sérialiser</param>
+        /// <param name="chemin">Le chemin et le nom.ext du fichier</param>
+        public static void sauve(ServiceCommercial sc, String chemin)
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream flux = null;
             try
             {
                 flux = new FileStream(chemin, FileMode.Create, FileAccess.Write);
-                formatter.Serialize(flux, objet);
+                formatter.Serialize(flux, sc);
                 flux.Flush();
             }
             catch { }
@@ -28,6 +33,11 @@ namespace ClassLibraryTPCommerciaux
             }
         }
 
+        /// <summary>
+        /// Méthode static qui désérialise un fichier binaire.
+        /// </summary>
+        /// <param name="chemin">Le chemin et le nom.ext du fichier</param>
+        /// <returns>Le service commercial.</returns>
         public static ServiceCommercial charge(String chemin)
         {
             BinaryFormatter formatter = new BinaryFormatter();
